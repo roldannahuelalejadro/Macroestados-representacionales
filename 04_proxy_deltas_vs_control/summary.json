@@ -1,0 +1,26 @@
+{
+  "n_input_samples": 90,
+  "n_delta_samples": 90,
+  "n_missing_controls": 0,
+  "delta_definition": "a(q_alpha) - a(q_secret_base_none_0)",
+  "control_key": [
+    "secret_id",
+    "base_prompt_index"
+  ],
+  "layers": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24
+  ],
+  "best_layer_by_noncontrol_silhouette_pca2": 20,
+  "outputs": {
+    "samples": "outputs\\qwen3_ollama_three_transform_b16_proxy_delta\\delta_samples.csv",
+    "vectors": "outputs\\qwen3_ollama_three_transform_b16_proxy_delta\\delta_vectors_by_layer.npz",
+    "metrics": "outputs\\qwen3_ollama_three_transform_b16_proxy_delta\\delta_layer_metrics_transform_family.csv",
+    "pca_plot": "outputs\\qwen3_ollama_three_transform_b16_proxy_delta\\delta_pca_best_layer_transform_family.png"
+  }
+}

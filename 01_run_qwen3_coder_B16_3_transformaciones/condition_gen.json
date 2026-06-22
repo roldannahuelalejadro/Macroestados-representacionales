@@ -1,0 +1,38 @@
+{
+  "backend": "ollama",
+  "model": "qwen3-coder:30b-32k",
+  "ollama_url": "http://127.0.0.1:11434",
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_new_tokens": 80,
+  "B": 16,
+  "seed_base": 19000,
+  "secrets": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5"
+  ],
+  "base_indexes": [
+    1,
+    2,
+    3
+  ],
+  "families": [
+    "none",
+    "context_injection",
+    "partial_extraction",
+    "transform_extraction"
+  ],
+  "strengths": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "include_benign": true,
+  "generated_tokens": 82566,
+  "measured_tokens_per_second": 59.25573815529741,
+  "system_policy": "local canary vault refusal policy"
+}

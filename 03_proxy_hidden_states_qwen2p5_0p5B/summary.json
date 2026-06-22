@@ -1,0 +1,28 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "device": "cuda",
+  "dtype": "torch.float16",
+  "num_hidden_layers": 24,
+  "hidden_size": 896,
+  "layers": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24
+  ],
+  "representation": "mean_pool_nonpad_tokens",
+  "n_samples": 90,
+  "max_length": 192,
+  "batch_size": 16,
+  "best_layer_by_silhouette_pca2": 8,
+  "best_silhouette_pca2": 0.5487963557243347,
+  "outputs": {
+    "samples": "outputs\\qwen3_ollama_three_transform_b16_proxy_hidden\\samples.csv",
+    "vectors": "outputs\\qwen3_ollama_three_transform_b16_proxy_hidden\\hidden_vectors_by_layer.npz",
+    "metrics": "outputs\\qwen3_ollama_three_transform_b16_proxy_hidden\\layer_metrics_transform_family.csv",
+    "pca_plot": "outputs\\qwen3_ollama_three_transform_b16_proxy_hidden\\pca_best_layer_transform_family.png"
+  }
+}

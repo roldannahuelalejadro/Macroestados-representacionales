@@ -1,0 +1,238 @@
+{
+  "condition": {
+    "backend": "ollama",
+    "model": "qwen3-coder:30b-32k",
+    "ollama_url": "http://127.0.0.1:11434",
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_new_tokens": 80,
+    "B": 8,
+    "seed_base": 7000,
+    "secrets": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
+    "base_indexes": [
+      1,
+      2,
+      3
+    ],
+    "families": [
+      "none",
+      "neutral_paraphrase",
+      "typo_noise",
+      "language_switch",
+      "roleplay_frame",
+      "authority_pressure",
+      "urgency_pressure",
+      "benign_purpose_claim",
+      "format_constraint",
+      "partial_extraction",
+      "transform_extraction",
+      "context_injection"
+    ],
+    "strengths": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "include_benign": true,
+    "generated_tokens": 220581,
+    "measured_tokens_per_second": 58.81581622650752,
+    "system_policy": "local canary vault refusal policy",
+    "deduplicated_from": "outputs\\qwen3_ollama_general_sweep_b8",
+    "dedupe_key": "normalized prompt text",
+    "original_prompt_count": 544,
+    "deduped_prompt_count": 484,
+    "dropped_duplicate_prompt_count": 60,
+    "original_rollout_count": 4352,
+    "deduped_rollout_count": 3872
+  },
+  "model_show": {
+    "architecture": "qwen3moe",
+    "parameters": "30.5B total reported by Ollama",
+    "embedding_length": 2048,
+    "quantization": "Q4_K_M",
+    "num_ctx": 32768
+  },
+  "prompt_summary": {
+    "overall": {
+      "n_prompts": 484,
+      "nonzero_D_stat_max": 189,
+      "nonzero_rate": 0.390495867768595,
+      "mean_D_stat_max": 0.7749398171964123,
+      "median_D_stat_max": 0.0,
+      "std_D_stat_max": 1.456651829234387,
+      "max_D_stat_max": 3.999945403340392
+    },
+    "csv": {
+      "family_strength": "outputs\\qwen3_ollama_phase1_reanalysis\\prompt_summary_by_family_strength.csv",
+      "secret_family": "outputs\\qwen3_ollama_phase1_reanalysis\\prompt_summary_by_secret_family.csv",
+      "top_prompts": "outputs\\qwen3_ollama_phase1_reanalysis\\top_40_prompts_by_D_stat_max.csv"
+    }
+  },
+  "rollout_summary": {
+    "n_rollouts": 3872,
+    "mean_e_max": 0.23889462809917356,
+    "positive_e_max_rate": 0.2456095041322314,
+    "csv": "outputs\\qwen3_ollama_phase1_reanalysis\\rollout_component_summary_by_family_strength.csv"
+  },
+  "plots": {
+    "dstat_family_strength": "outputs\\qwen3_ollama_phase1_reanalysis\\plots\\dstat_max_by_family_strength.png",
+    "dstat_boxplot_family": "outputs\\qwen3_ollama_phase1_reanalysis\\plots\\dstat_max_boxplot_by_family.png",
+    "rollout_component_heatmap": "outputs\\qwen3_ollama_phase1_reanalysis\\plots\\rollout_component_heatmap_family_strength.png"
+  },
+  "metadata_probe": {
+    "regression_csv": "outputs\\qwen3_ollama_phase1_reanalysis\\metadata_regression_metrics.csv",
+    "classification_csv": "outputs\\qwen3_ollama_phase1_reanalysis\\metadata_classification_metrics.csv",
+    "best_regression_random_kfold": [
+      {
+        "target": "D_stat_max",
+        "split": "random_kfold",
+        "model": "metadata_extra_trees",
+        "n_eval": 450,
+        "r2": 0.5307681172061958,
+        "mae": 0.48517605489937005,
+        "rmse": 0.998180390305765
+      },
+      {
+        "target": "D_stat_max",
+        "split": "random_kfold",
+        "model": "metadata_pairwise_ridge",
+        "n_eval": 450,
+        "r2": 0.4615144891262162,
+        "mae": 0.783975719475444,
+        "rmse": 1.0693067002356025
+      },
+      {
+        "target": "D_stat_max",
+        "split": "random_kfold",
+        "model": "metadata_main_ridge",
+        "n_eval": 450,
+        "r2": 0.3748836566358784,
+        "mae": 0.8772988009031432,
+        "rmse": 1.1521146625344971
+      },
+      {
+        "target": "D_stat_max",
+        "split": "random_kfold",
+        "model": "dummy_mean",
+        "n_eval": 450,
+        "r2": -0.003568779747921802,
+        "mae": 1.1357606454977303,
+        "rmse": 1.4597848367137154
+      }
+    ],
+    "best_regression_leave_secret_out": [
+      {
+        "target": "D_stat_max",
+        "split": "leave_secret_out",
+        "model": "metadata_extra_trees",
+        "n_eval": 450,
+        "r2": 0.6675327738264476,
+        "mae": 0.3735854553054935,
+        "rmse": 0.8402135809254291
+      },
+      {
+        "target": "D_stat_max",
+        "split": "leave_secret_out",
+        "model": "metadata_pairwise_ridge",
+        "n_eval": 450,
+        "r2": 0.4729461113274499,
+        "mae": 0.7592731218424241,
+        "rmse": 1.0578955444435107
+      },
+      {
+        "target": "D_stat_max",
+        "split": "leave_secret_out",
+        "model": "metadata_main_ridge",
+        "n_eval": 450,
+        "r2": 0.3837432263371753,
+        "mae": 0.8668843615842233,
+        "rmse": 1.1439212559690821
+      },
+      {
+        "target": "D_stat_max",
+        "split": "leave_secret_out",
+        "model": "dummy_mean",
+        "n_eval": 450,
+        "r2": -0.0052711659441302405,
+        "mae": 1.1371365579710295,
+        "rmse": 1.4610224522126156
+      }
+    ],
+    "classification_rows": [
+      {
+        "target": "D_stat_nonzero",
+        "split": "leave_secret_out",
+        "model": "dummy_majority",
+        "n_eval": 450,
+        "positive_rate": 0.4066666666666667,
+        "accuracy": 0.5933333333333334,
+        "balanced_accuracy": 0.5,
+        "roc_auc": 0.5,
+        "average_precision": 0.4066666666666667
+      },
+      {
+        "target": "D_stat_nonzero",
+        "split": "leave_secret_out",
+        "model": "metadata_main_logit",
+        "n_eval": 450,
+        "positive_rate": 0.4066666666666667,
+        "accuracy": 0.7133333333333334,
+        "balanced_accuracy": 0.711149996930067,
+        "roc_auc": 0.7992059106444813,
+        "average_precision": 0.7817159524198771
+      },
+      {
+        "target": "D_stat_nonzero",
+        "split": "leave_secret_out",
+        "model": "metadata_pairwise_logit",
+        "n_eval": 450,
+        "positive_rate": 0.4066666666666667,
+        "accuracy": 0.7733333333333333,
+        "balanced_accuracy": 0.766869282249647,
+        "roc_auc": 0.8339370868381736,
+        "average_precision": 0.8071902914341444
+      },
+      {
+        "target": "D_stat_nonzero",
+        "split": "random_stratified",
+        "model": "dummy_majority",
+        "n_eval": 450,
+        "positive_rate": 0.4066666666666667,
+        "accuracy": 0.5933333333333334,
+        "balanced_accuracy": 0.5,
+        "roc_auc": 0.5,
+        "average_precision": 0.4066666666666667
+      },
+      {
+        "target": "D_stat_nonzero",
+        "split": "random_stratified",
+        "model": "metadata_main_logit",
+        "n_eval": 450,
+        "positive_rate": 0.4066666666666667,
+        "accuracy": 0.7266666666666667,
+        "balanced_accuracy": 0.7258242770307608,
+        "roc_auc": 0.7828329342420335,
+        "average_precision": 0.7576877846360487
+      },
+      {
+        "target": "D_stat_nonzero",
+        "split": "random_stratified",
+        "model": "metadata_pairwise_logit",
+        "n_eval": 450,
+        "positive_rate": 0.4066666666666667,
+        "accuracy": 0.7488888888888889,
+        "balanced_accuracy": 0.7462700313133174,
+        "roc_auc": 0.8195902662655288,
+        "average_precision": 0.7821347400652447
+      }
+    ]
+  },
+  "method_warning": "This reanalysis uses qwen3-coder behavioral outputs. Existing per-layer hidden-state files are from Qwen/Qwen2.5-0.5B-Instruct, because Ollama does not expose per-layer hidden states."
+}
